@@ -35,5 +35,5 @@ function firstVersionSupporting(featureName, runtimeName) {
     .filter(([key]) => key.startsWith(runtimeName))
     .find(([, value]) => value === true); // exclude behind-a-flag
 
-  return entry && Number(entry[0].slice(name.length));
+  return entry && Number(entry[0].slice(runtimeName.length));
 }

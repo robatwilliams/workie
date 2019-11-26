@@ -1,35 +1,36 @@
 const { parse } = require('@babel/parser');
-const traverse = require('@babel/traverse').default;
 const dataESNext = require('compat-table/data-esnext');
 
-module.exports = function supports(browser, code) {
+const numericSeparator = require('./features/numericSeparator');
+
+module.exports = function supports(runtime, code) {
+  const features = [numericSeparator];
+
   const ast = parse(code, {
-    plugins: ['numericSeparator'],
+    plugins: features.map(feature => feature.parserPlugin),
   });
 
-  let usesNumericSeparators = false;
-
-  traverse(ast, {
-    NumericLiteral({ node }) {
-      // Look for tell-tale sign of the plugin, not an ideal approach but it gets us started
-      // https://github.com/babel/babel/blob/master/packages/babel-plugin-proposal-numeric-separator/src/index.js
-      if (node.extra.raw !== node.extra.rawValue.toString()) {
-        usesNumericSeparators = true;
-      }
-    },
-  });
-
-  if (usesNumericSeparators) {
-    const results = dataESNext.tests.find(test => test.name === 'numeric separators').res;
-    return browser.version >= firstSupportedVersion(results, browser.name);
+  for (const feature of features) {
+    if (feature.within(ast) && !supportsFeature(feature, runtime)) {
+      return false;
+    }
   }
 
   return true;
 };
 
-function firstSupportedVersion(results, name) {
+function supportsFeature(feature, runtime) {
+  return (
+    runtime.version >=
+    firstVersionSupporting(feature.compatibilityTableName, runtime.name)
+  );
+}
+
+function firstVersionSupporting(featureName, runtimeName) {
+  const results = dataESNext.tests.find(test => test.name === featureName).res;
+
   const entry = Object.entries(results)
-    .filter(([key]) => key.startsWith(name))
+    .filter(([key]) => key.startsWith(runtimeName))
     .find(([, value]) => value === true); // exclude behind-a-flag
 
   return entry && Number(entry[0].slice(name.length));

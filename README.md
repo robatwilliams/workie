@@ -1,5 +1,5 @@
 # workie
-> Browser compatibility checker for raw JavaScript
+> Runtime compatibility checker for raw JavaScript
 
 Workie, or no workie.
 

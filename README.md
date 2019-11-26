@@ -6,6 +6,23 @@ Helps you write code that works without polyfills or transpilation.
 
 This is a feasibility experiment for [module-requests/103](https://github.com/sindresorhus/module-requests/issues/103).
 
+**In conclusion,** considering the effort required and limitations (see notes below), it's probably not worth the effort for quite a niche use case.
+
+## Feasibility notes
+
+Language feature detection via AST
+
+- tedious to implement for all ES2016+/ESNext features
+- potential for mistakes
+- some may be difficult
+
+API usage detection via `@financial-times/js-features-analyser`
+
+- prone to false-positives because JS is untyped (e.g. `foo.description` detects `Symbol.prototype.description`)
+- needs to be able initialise its babel parser with the plugins we need
+
+Browser support data source - which one to use?
+
 ## MVP use cases
 
 ⚠️ Only a few basic use cases are currently implemented, as a proof of concept.

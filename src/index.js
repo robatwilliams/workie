@@ -3,9 +3,10 @@ const dataESNext = require('compat-table/data-esnext');
 
 const nullishCoalescingOperator = require('./features/nullishCoalescingOperator');
 const numericSeparator = require('./features/numericSeparator');
+const optionalChaining = require('./features/optionalChaining');
 
 module.exports = function supports(runtime, code) {
-  const features = [nullishCoalescingOperator, numericSeparator];
+  const features = [nullishCoalescingOperator, numericSeparator, optionalChaining];
 
   const ast = parse(code, {
     plugins: features.map(feature => feature.parserPlugin),

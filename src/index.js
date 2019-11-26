@@ -1,10 +1,11 @@
 const { parse } = require('@babel/parser');
 const dataESNext = require('compat-table/data-esnext');
 
+const nullishCoalescingOperator = require('./features/nullishCoalescingOperator');
 const numericSeparator = require('./features/numericSeparator');
 
 module.exports = function supports(runtime, code) {
-  const features = [numericSeparator];
+  const features = [nullishCoalescingOperator, numericSeparator];
 
   const ast = parse(code, {
     plugins: features.map(feature => feature.parserPlugin),

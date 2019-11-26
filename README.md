@@ -2,6 +2,6 @@
 
 > Runtime compatibility checker for raw JavaScript
 
-Workie, or no workie.
+Helps you write code that works without polyfills or transpilation.
 
-Feasibility experiment for https://github.com/sindresorhus/module-requests/issues/103
+This is a feasibility experiment for [module-requests/103](https://github.com/sindresorhus/module-requests/issues/103).

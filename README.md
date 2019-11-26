@@ -8,7 +8,7 @@ This is a feasibility experiment for [module-requests/103](https://github.com/si
 
 ## MVP use cases
 
-⚠️ It doesn't actually do anything yet.
+⚠️ Only a few basic use cases are currently implemented, as a proof of concept.
 
 ### Where will this code work?
 

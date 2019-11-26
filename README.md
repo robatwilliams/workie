@@ -55,3 +55,12 @@ $ npx workie -- --targets=chrome --suggest source.js
 ## Nice to haves
 
 - Show release date alongside versions, for context. Data from [here](https://github.com/mdn/browser-compat-data/tree/master/browsers).
+
+## Potentially useful tools and resources
+
+- https://astexplorer.net
+- https://github.com/Financial-Times/js-features-analyser
+- https://github.com/Fyrd/caniuse
+- https://github.com/kangax/compat-table
+- https://github.com/mdn/browser-compat-data
+- https://github.com/zloirock/core-js/tree/master/packages/core-js-compat

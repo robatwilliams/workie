@@ -6,8 +6,6 @@ Helps you write code that works without polyfills or transpilation.
 
 This is a feasibility experiment for [module-requests/103](https://github.com/sindresorhus/module-requests/issues/103).
 
-**In conclusion,** considering the effort required and limitations (see notes below), it's probably not worth the effort for quite a niche use case.
-
 ## Feasibility notes
 
 Language feature detection via AST
@@ -15,6 +13,7 @@ Language feature detection via AST
 - tedious to implement for all ES2016+/ESNext features
 - potential for mistakes
 - some may be difficult
+- **Update**: [eslint-plugin-es)](https://github.com/mysticatea/eslint-plugin-es) does this
 
 API usage detection via `@financial-times/js-features-analyser`
 
@@ -76,8 +75,11 @@ $ npx workie -- --targets=chrome --suggest source.js
 ## Potentially useful tools and resources
 
 - https://astexplorer.net
+- https://github.com/amilajack/ast-metadata-inferer
+- https://github.com/amilajack/eslint-plugin-compat (APIs only; not language)
 - https://github.com/Financial-Times/js-features-analyser
 - https://github.com/Fyrd/caniuse
+- https://github.com/amilajack/compat-db
 - https://github.com/kangax/compat-table
 - https://github.com/mdn/browser-compat-data
 - https://github.com/zloirock/core-js/tree/master/packages/core-js-compat

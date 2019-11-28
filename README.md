@@ -13,7 +13,7 @@ Language feature detection via AST
 - tedious to implement for all ES2016+/ESNext features
 - potential for mistakes
 - some may be difficult
-- **Update**: [eslint-plugin-es)](https://github.com/mysticatea/eslint-plugin-es) does this
+- **Update**: [eslint-plugin-es](https://github.com/mysticatea/eslint-plugin-es) does this
 
 API usage detection via `@financial-times/js-features-analyser`
 

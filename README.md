@@ -1,5 +1,7 @@
 # workie
 
+⚠️⚠️⚠️ **ARCHIVED** ⚠️⚠️⚠️ - see https://github.com/robatwilliams/es-compat, which was born out of this
+
 > Runtime compatibility checker for raw JavaScript
 
 Helps you write code that works without polyfills or transpilation.
